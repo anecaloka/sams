@@ -25,6 +25,7 @@ pinGSM = 22
 #pinList = pinList*portsActive
 #pinList = pinList[pinList != 0]
 
+GPIO.cleanup()
 
 # loop through all monitor units (MU) and GSM pins and set mode and state to
 GPIO.setup(pinGSM,GPIO.OUT)

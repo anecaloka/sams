@@ -5,7 +5,7 @@
 #
 #!/usr/bin/python
 #
-from numpy import array as arr
+#from numpy import array as arr
 import RPi.GPIO as GPIO
 import time
 

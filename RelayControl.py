@@ -25,7 +25,6 @@ pinGSM = 22
 #pinList = pinList*portsActive
 #pinList = pinList[pinList != 0]
 
-GPIO.cleanup()
 
 # loop through all monitor units (MU) and GSM pins and set mode and state to
 GPIO.setup(pinGSM,GPIO.OUT)
@@ -34,6 +33,8 @@ GPIO.setup(pinGSM,GPIO.HIGH)
 for i in pinList:
     GPIO.setup(i, GPIO.OUT)
     GPIO.output(i, GPIO.HIGH)
+
+GPIO.cleanup()
 
 # time to sleep between operations in the main loop
 MU_duration  = .3 # This is seconds and will be 300 (5 min)

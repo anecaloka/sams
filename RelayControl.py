@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BCM)
 
 # init list with GPIO pin numbers as they are connected to the RPi
 pinList= [5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
-pinGSM = 22
+pinGSM = 27
 
 # The array portsActive is set by the user control surface and
 # saved on the local storage so it will not get lost when reboot.
@@ -41,7 +41,7 @@ GSM_forerun  = 2 # This is the time the GSM/WiFi is powered before the cascade s
 
 # Power up GSM
 GPIO.output(pinGSM, GPIO.LOW)
-print("GSM powered.")
+print("GSM powered. RUnning cascades now...")
 time.sleep(GSM_forerun)
 
 # Start powering in cascades

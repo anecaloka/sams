@@ -11,7 +11,7 @@ import time
 
 
 # time to sleep between operations in the main loop
-MU_duration = .8
+MU_duration = 30
 GSM_forerun = .2
 
 
@@ -57,7 +57,7 @@ try:
 
     GPIO.output(pinGSM, GPIO.HIGH)
     GPIO.cleanup()
-time.sleep(180)
+
 # End program cleanly with keyboard
 except KeyboardInterrupt:
     print("Break (User requested)")

@@ -14,7 +14,7 @@ GPIO.setmode(GPIO.BCM)
 
 
 # init list with GPIO pin numbers as they are connected to the RPi
-pinList= arr([ 5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16])
+pinList= [ 5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
 pinGSM = 22
 
 # The array portsActive is set by the user control surface and

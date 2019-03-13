@@ -41,7 +41,7 @@ for i in pinList:
     GPIO.output(i, GPIO.HIGH)
 
 GPIO.setup(pinGSM,GPIO.OUT)
-GPIO.output(pinGSM,GPIO.HIGH)
+#GPIO.output(pinGSM,GPIO.HIGH)
 
 # Power up GSM
 GPIO.output(pinGSM, GPIO.LOW)

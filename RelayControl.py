@@ -14,7 +14,7 @@ GPIO.setmode(GPIO.BCM)
 
 
 # init list with GPIO pin numbers as they are connected to the RPi
-pinList= [ 5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
+pinList= [5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
 pinGSM = 22
 
 # The array portsActive is set by the user control surface and
@@ -31,10 +31,9 @@ GPIO.setup(pinGSM,GPIO.OUT)
 GPIO.setup(pinGSM,GPIO.HIGH)
 
 for i in pinList:
+    print(i)
     GPIO.setup(i, GPIO.OUT)
     GPIO.output(i, GPIO.HIGH)
-
-GPIO.cleanup()
 
 # time to sleep between operations in the main loop
 MU_duration  = .3 # This is seconds and will be 300 (5 min)

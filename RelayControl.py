@@ -57,7 +57,7 @@ try:
 
     GPIO.output(pinGSM, GPIO.HIGH)
     GPIO.cleanup()
-time.sleep(3*60)
+time.sleep(180)
 # End program cleanly with keyboard
 except KeyboardInterrupt:
     print("Break (User requested)")

@@ -11,8 +11,8 @@ import time
 
 
 # time to sleep between operations in the main loop
-MU_duration = 0.005*8*60
-GSM_forerun = 0.005*2*60
+MU_duration = .8
+GSM_forerun = .2
 
 
 # init scheme to BCM

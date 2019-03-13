@@ -11,7 +11,7 @@ import time
 
 
 # time to sleep between operations in the main loop
-MU_duration  = .3 # This is seconds and will be 300 (5 min)
+MU_duration  = .1 # This is seconds and will be 300 (5 min)
 GSM_forerun  = 2 # This is the time the GSM/WiFi is powered before the cascade starts (10 sec?)
 
 

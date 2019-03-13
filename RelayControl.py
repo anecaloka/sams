@@ -24,7 +24,7 @@ GPIO.setmode(GPIO.BCM)
 # Prototype GPIO pin numbers:
 pinList = [5, 12, 6, 7, 13]
 
-pinGSM = 27
+pinGSM = 22
 
 # The array portsActive is set by the user control surface and
 # saved on the local storage so it will not get lost when reboot.
@@ -41,7 +41,7 @@ for i in pinList:
     GPIO.output(i, GPIO.HIGH)
 
 GPIO.setup(pinGSM,GPIO.OUT)
-#GPIO.output(pinGSM,GPIO.HIGH)
+GPIO.output(pinGSM,GPIO.HIGH)
 
 # Power up GSM
 GPIO.output(pinGSM, GPIO.LOW)

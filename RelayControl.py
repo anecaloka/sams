@@ -9,6 +9,12 @@
 import RPi.GPIO as GPIO
 import time
 
+
+# time to sleep between operations in the main loop
+MU_duration  = .3 # This is seconds and will be 300 (5 min)
+GSM_forerun  = 2 # This is the time the GSM/WiFi is powered before the cascade starts (10 sec?)
+
+
 # init scheme to BCM
 GPIO.setmode(GPIO.BCM)
 
@@ -27,17 +33,12 @@ pinGSM = 22
 
 
 # loop through all monitor units (MU) and GSM pins and set mode and state to
-
-GPIO.setup(pinGSM,GPIO.OUT)
-GPIO.output(pinGSM,GPIO.HIGH)
-
 for i in pinList:
     GPIO.setup(i, GPIO.OUT)
     GPIO.output(i, GPIO.HIGH)
 
-# time to sleep between operations in the main loop
-MU_duration  = .3 # This is seconds and will be 300 (5 min)
-GSM_forerun  = 2 # This is the time the GSM/WiFi is powered before the cascade starts (10 sec?)
+GPIO.setup(pinGSM,GPIO.OUT)
+GPIO.output(pinGSM,GPIO.HIGH)
 
 # Power up GSM
 GPIO.output(pinGSM, GPIO.LOW)

@@ -15,7 +15,7 @@ GPIO.setmode(GPIO.BCM)
 
 # init list with GPIO pin numbers as they are connected to the RPi
 pinList= [5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
-pinGSM = 14
+pinGSM = 22
 
 # The array portsActive is set by the user control surface and
 # saved on the local storage so it will not get lost when reboot.
@@ -29,7 +29,7 @@ pinGSM = 14
 # loop through all monitor units (MU) and GSM pins and set mode and state to
 
 GPIO.setup(pinGSM,GPIO.OUT)
-GPIO.setup(pinGSM,GPIO.HIGH)
+GPIO.output(pinGSM,GPIO.HIGH)
 
 for i in pinList:
     GPIO.setup(i, GPIO.OUT)
@@ -47,11 +47,11 @@ time.sleep(GSM_forerun)
 # Start powering in cascades
 try:
     for i in pinList:
-        GPIO.output(i,GPIO.LOW)
+        GPIO.output(i, GPIO.LOW)
         time.sleep(MU_duration)
-        GPIO.output(i,GPIO.HIGH)
+        GPIO.output(i, GPIO.HIGH)
 
-    GPIO.output(pinGSM,GPIO.HIGH)
+    GPIO.output(pinGSM, GPIO.HIGH)
     GPIO.cleanup()
 
 # End program cleanly with keyboard

@@ -11,8 +11,8 @@ import time
 
 
 # time to sleep between operations in the main loop
-MU_duration  = 8 # This is seconds and will be 300 (5 min)
-GSM_forerun  = 2 # This is the time the GSM/WiFi is powered before the cascade starts (10 sec?)
+MU_duration = 0.005*8*60
+GSM_forerun = 0.005*2*60
 
 
 # init scheme to BCM
@@ -20,7 +20,10 @@ GPIO.setmode(GPIO.BCM)
 
 
 # init list with GPIO pin numbers as they are connected to the RPi
-pinList= [5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
+# pinList= [5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
+# Prototype GPIO pin numbers:
+pinList = [5, 12, 6, 7, 13]
+
 pinGSM = 27
 
 # The array portsActive is set by the user control surface and

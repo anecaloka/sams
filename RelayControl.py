@@ -10,9 +10,9 @@ import RPi.GPIO as GPIO
 import time
 
 
-# time to sleep between operations in the main loop
-MU_duration = 30
-GSM_forerun = .2
+# time to sleep  (in seconds) between operations in the main loop
+MU_duration = .3
+GSM_forerun = 1
 
 
 # init scheme to BCM
@@ -57,7 +57,7 @@ try:
 
     GPIO.output(pinGSM, GPIO.HIGH)
     GPIO.cleanup()
-
+    
 # End program cleanly with keyboard
 except KeyboardInterrupt:
     print("Break (User requested)")

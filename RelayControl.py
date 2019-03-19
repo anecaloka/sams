@@ -24,7 +24,7 @@ GPIO.setmode(GPIO.BCM)
 # Prototype GPIO pin numbers:
 pinList = [5, 6]
 
-pinGSM = 22
+pinGSM = 13
 
 # The array portsActive is set by the user control surface and
 # saved on the local storage so it will not get lost when reboot.

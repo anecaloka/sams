@@ -10,9 +10,9 @@ import RPi.GPIO as GPIO
 import time
 
 # time to sleep  (in seconds) between operations in the main loop
-MU_duration = 540
+MU_duration = 5.4
 #540
-GSM_forerun = 120
+GSM_forerun = 1.2
 #120
 
 # init scheme to BCM

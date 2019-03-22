@@ -36,7 +36,7 @@ pinGSM = 22
 # loop through both gyver pins to activate reference pins (5V + GND) and wait 1 second before starting actual script
 for i in pinGyver:
     GPIO.setup(i,GPIO.OUT)
-    GPIO.output(i,GPIO.LOW)
+    #GPIO.output(i,GPIO.LOW)
 time.sleep(1)
 
 

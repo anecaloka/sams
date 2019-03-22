@@ -10,9 +10,9 @@ import RPi.GPIO as GPIO
 import time
 
 # time to sleep  (in seconds) between operations in the main loop
-MU_duration = 5.4
+MU_duration = 5
 #540
-GSM_forerun = 1.2
+GSM_forerun = 2
 #120
 
 # init scheme to BCM
@@ -22,7 +22,7 @@ GPIO.setmode(GPIO.BCM)
 # pinList= [5, 12, 6, 7, 13, 25, 19, 24, 26, 23, 21, 18, 20, 15, 16]
 # Prototype GPIO pin numbers:
 pinList = [5, 6]
-pinGyver = [13, 19]
+#pinGyver = [13, 19]
 pinGSM = 22
 
 # The array portsActive is set by the user control surface and
@@ -34,33 +34,33 @@ pinGSM = 22
 # pinList = pinList[pinList != 0]
 
 # loop through both gyver pins to activate reference pins (5V + GND) and wait 1 second before starting actual script
-for i in pinGyver:
-    GPIO.setup(i,GPIO.OUT)
-    #GPIO.output(i,GPIO.LOW)
-time.sleep(1)
+#for i in pinGyver:
+#    GPIO.setup(i,GPIO.OUT)
+#    GPIO.output(i,GPIO.LOW)
+#time.sleep(1)
 
 
 # loop through all monitor units (MU) and GSM pins and set mode and state to
 for i in pinList:
     GPIO.setup(i, GPIO.OUT)
-    GPIO.output(i, GPIO.HIGH)
+    GPIO.output(i, GPIO.LOW)
 
 GPIO.setup(pinGSM, GPIO.OUT)
-GPIO.output(pinGSM, GPIO.HIGH)
+GPIO.output(pinGSM, GPIO.LOW)
 
 # Power up GSM
-GPIO.output(pinGSM, GPIO.LOW)
+GPIO.output(pinGSM, GPIO.HIGH)
 print("GSM powered. RUnning cascades now...")
 time.sleep(GSM_forerun)
 
 # Start powering in cascades
 try:
     for i in pinList:
-        GPIO.output(i, GPIO.LOW)
-        time.sleep(MU_duration)
         GPIO.output(i, GPIO.HIGH)
+        time.sleep(MU_duration)
+        GPIO.output(i, GPIO.LOW)
 
-    GPIO.output(pinGSM, GPIO.HIGH)
+    GPIO.output(pinGSM, GPIO.LOW)
     GPIO.cleanup()
 
 # End program cleanly with keyboard

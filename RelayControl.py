@@ -43,24 +43,24 @@ pinGSM = 22
 # loop through all monitor units (MU) and GSM pins and set mode and state to
 for i in pinList:
     GPIO.setup(i, GPIO.OUT)
-    GPIO.output(i, GPIO.LOW)
+    GPIO.output(i, GPIO.HIGH)
 
 GPIO.setup(pinGSM, GPIO.OUT)
-GPIO.output(pinGSM, GPIO.LOW)
+GPIO.output(pinGSM, GPIO.HIGH)
 
 # Power up GSM
-GPIO.output(pinGSM, GPIO.HIGH)
+GPIO.output(pinGSM, GPIO.LOW)
 print("GSM powered. RUnning cascades now...")
 time.sleep(GSM_forerun)
 
 # Start powering in cascades
 try:
     for i in pinList:
-        GPIO.output(i, GPIO.HIGH)
-        time.sleep(MU_duration)
         GPIO.output(i, GPIO.LOW)
+        time.sleep(MU_duration)
+        GPIO.output(i, GPIO.HIGH)
 
-    GPIO.output(pinGSM, GPIO.LOW)
+    GPIO.output(pinGSM, GPIO.HIGH)
     GPIO.cleanup()
 
 # End program cleanly with keyboard
